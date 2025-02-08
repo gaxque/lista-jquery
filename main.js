@@ -5,27 +5,27 @@ $(document).ready(function(){
     })
 
     $('header').on('dblclick', function(){
-        $('form').slideUp(); //ANIMACAO BARRA DESCENDO
+        $('form').slideUp(); //ANIMACAO BARRA SUBINDO
     })
 
     $('#botao-adicionar').click(function(event){
         event.preventDefault(); // Impede o envio do formulário
 
-        let novaAtividade = $('#input-atividade').val().trim();
+        let novaAtividade = $('#input-atividade').val().trim(); //ATRIBUINDO O VALOR DO CAMPO DE TEXTO
 
-            //Adiciona linha
+            //ADICIONANDO A LINHA
         if (novaAtividade !== '') {
-            $('#lista-tarefa').append('<li>' + novaAtividade + '</li>');
-            $('#input-atividade').val('');
+            $('#lista-tarefa').append('<li>' + novaAtividade + '</li>'); // INSERINDO UM LI PARA CONTAR A LINHA
+            $('#input-atividade').val(''); // VOLTANDO AO CAMPO VAZIO DE TEXTO
         }
     });
 
-    // Função para marcar/desmarcar uma tarefa como concluída
+    // FUNCAO PARA MARCAR COMPLETED
     $(document).on('click', 'li', function () {
         $(this).toggleClass('completed');
     });
 
-    
+    // 2 CLIQUES REMOVE A LINHA OU A TAREFA DIRETAMENTE NO LI 
     $(document).on('dblclick', 'li', function () {
         $(this).remove();
     });
